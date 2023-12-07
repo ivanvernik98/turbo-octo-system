@@ -1,0 +1,19 @@
+var body: some View {
+        NavigationStack(path: $model.screens) {
+            VStack {
+                Spacer()
+                Button("SomeView2") {
+                    var transaction = Transaction()
+                    transaction.disablesAnimations = true
+                    withTransaction(transaction) {
+                        model.screens.append(.screen2)
+                    }
+                }
+                Button("SomeView3") {
+                    model.screens += [.screen3, .screen4]
+                }
+                Button("SomeView4") {
+                    model.screens.append(.screen4)
+                }
+                Spacer()
+            }
